@@ -1,5 +1,8 @@
 #pragma once
 
+#include <pcl/point_types.h>
+#include <livox_ros_driver2/msg/custom_msg.hpp>
+#include <pcl/point_cloud.h>
 #include <cstdint>
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
@@ -10,7 +13,6 @@
 #include <nav_msgs/msg/odometry.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <std_srvs/srv/trigger.hpp>
-
 namespace mid360_mapping
 {
 class MappingNode : public rclcpp::Node
@@ -20,13 +22,13 @@ public:
 
 private:
   void on_cloud(sensor_msgs::msg::PointCloud2::ConstSharedPtr message);
-  void on_custom_cloud(std::shared_ptr<rclcpp::SerializedMessage> message);
+  void on_custom_cloud(livox_ros_driver2::msg::CustomMsg::ConstSharedPtr message);
   void on_imu(sensor_msgs::msg::Imu::ConstSharedPtr message);
-
+  pcl::PointCloud<pcl::PointXYZI>::Ptr global_map_{new pcl::PointCloud<pcl::PointXYZI>()};
   std::uint64_t cloud_count_{0};
   std::uint64_t imu_count_{0};
   rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr cloud_sub_;
-  rclcpp::GenericSubscription::SharedPtr custom_sub_;
+  rclcpp::Subscription<livox_ros_driver2::msg::CustomMsg>::SharedPtr custom_sub_;
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr map_pub_;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr registered_pub_;

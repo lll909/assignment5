@@ -1,9 +1,9 @@
 mapping_node:
   ros__parameters:
     use_sim_time: true
-    input_type: livox_custom
-    lidar_topic: /livox/lidar_192_168_1_140
-    imu_topic: /livox/imu_192_168_1_140
+    input_type: "livox_custom"
+    lidar_topic: "/livox/lidar_192_168_1_140"
+    imu_topic: "/livox/imu_192_168_1_140"
     map_frame: map
     body_frame: body
     map_output_path: ""

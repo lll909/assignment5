@@ -17,3 +17,15 @@ maps/*
 *.ply
 
 *.zip
+
+# Assignment5 final artifacts (keep historical map directories out of submission)
+!maps/
+!maps/map.pcd
+!maps/map.pgm
+!maps/map.yaml
+maps_final/
+maps_full/
+maps_test/
+maps_preview*/
+submission_backups/
+maps_submission_check/
