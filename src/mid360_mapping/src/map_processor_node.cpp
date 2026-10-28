@@ -178,7 +178,7 @@ public:
       });
       
     cleaned_pub_ = create_publisher<sensor_msgs::msg::PointCloud2>(
-      "mapping/map_filtered", rclcpp::SensorDataQoS());
+      "mapping/map_filtered", rclcpp::QoS(1).reliable().transient_local());
     grid_pub_ = create_publisher<nav_msgs::msg::OccupancyGrid>(
       "mapping/map_2d", rclcpp::QoS(1).reliable().transient_local());
       

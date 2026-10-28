@@ -1,0 +1,8 @@
+repository: https://github.com/Thetrafficlights/Point-LIO-ros2.git
+commit: 155f46da0b1eb3fc7c7facf43b00cb124631c807
+upstream_CMake_blob: 12044e4277970e0b6311d74dc98208c2de1d6fc7
+local_CMake_blob: 015e31f19aeedd84ac88ce92fa31de31af2b1633
+local_changes: CMakeLists.txt, config/mid360.yaml
+config_and_launch: exact copies from user-uploaded point_lio_repro.tar.gz
+CMakeLists.local.txt: reconstructed from upstream commit and user-provided diff; blob prefix matches diff
+PCD/: generated data, not vendored

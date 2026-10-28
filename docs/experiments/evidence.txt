@@ -1,0 +1,30 @@
+2026-10-28 本机实测摘录
+来源：用户提供的 A 组终端截图、已提交基线 maps/ 的读取结果，以及用户粘贴的 B 组日志和验证输出。
+这些是整理后的摘录，不是审查环境启动 ROS 生成的日志。未记录精确计算耗时。
+
+A（关闭统计离群过滤）
+Original cloud: 2071950 points
+Finite points: 2071950 (removed 0)
+After voxel filter: 1042586 points
+After height filter: 319779 points
+A 基线地图：319779 points, binary; 719 x 729; resolution=0.10000000149011612
+origin=[-37.78382873535156, -47.69228744506836, 0.0]
+像素统计: {0: 72806, 205: 451345}
+
+B（开启统计离群过滤）
+Boolean value is: True
+Trigger_Response(success=True, message='Saved map to /home/wzf/assignment5/maps_preview_B_current')
+通过文件结构检查: /home/wzf/assignment5/maps_preview_B_current
+PCD: 293,332 points, binary
+PGM: 679 x 718, resolution=0.10000000149011612 m
+origin=[-34.26485824584961, -47.196632385253906, 0.0]
+像素统计: {0: 57807, 205: 429715}
+Original cloud: 2071950 points
+Finite points: 2071950 (removed 0)
+After voxel filter: 1042586 points
+After outlier filter: 941119 points
+After height filter: 293332 points
+
+A post_sor_points=1042586 表示未执行 SOR，直接保留体素结果。
+B SOR 参数按所用 launch/源码默认值：mean_k=20, stddev=1.0。
+最终保留的 maps/ 为 A 基线，B 不覆盖现有地图。

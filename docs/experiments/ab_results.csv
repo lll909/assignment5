@@ -1,0 +1,3 @@
+group,remove_outliers,voxel_size_m,grid_resolution_m,height_min_m,height_max_m,original_points,finite_points,voxel_points,post_sor_points,height_filtered_points,grid_width,grid_height,occupied_cells,unknown_cells,free_cells,origin_x_m,origin_y_m
+A,false,0.10,0.10,-10,10,2071950,2071950,1042586,1042586,319779,719,729,72806,451345,0,-37.78382873535156,-47.69228744506836
+B,true,0.10,0.10,-10,10,2071950,2071950,1042586,941119,293332,679,718,57807,429715,0,-34.26485824584961,-47.196632385253906
